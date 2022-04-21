@@ -4,191 +4,205 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:orientation="horizontal">
+    tools:context=".MainActivity">
 
     <LinearLayout
-        android:id="@+id/LinearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
-        android:gravity="center"
         android:visibility="visible"
+        android:orientation="vertical"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/startButton"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/startText"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:backgroundTint="@color/oren"
-            android:text="Mulai Permainan"
-            android:onClick="MulaiPermainan"
-            android:textSize="40dp"
-            app:cornerRadius="15dp" />
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:textSize="30sp"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:text="Wanna Play Bro?"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:visibility="visible" />
 
+        <Button
+            android:id="@+id/startBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/darkblue"
+            android:nestedScrollingEnabled="false"
+            android:padding="20dp"
+            app:cornerRadius="10dp"
+            android:text="Mulai Permainan"
+            android:onClick="start"
+            android:visibility="visible" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayoutGame"
+        android:id="@+id/gameLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_height="match_parent"
         android:visibility="invisible"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.024">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:id="@+id/linearLayout3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
             android:orientation="horizontal"
-            android:gravity="center">
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="20dp">
 
             <TextView
-                android:id="@+id/timeTextView"
+                android:id="@+id/timerTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/red"
-                android:textColor="@color/white"
-                android:hint="0s"
-                android:textSize="30dp" />
+                android:textSize="30sp"
+                android:padding="10dp"
+                android:text="30s"
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/sumTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="1+1"
-                android:padding="20dp"
-                android:textSize="30dp" />
+                android:layout_marginStart="35dp"
+                android:layout_marginEnd="35dp"
+                android:padding="15dp"
+                android:textSize="25sp"
+                android:text="31 + 12"
+                android:textColor="@color/black" />
 
             <TextView
-                android:id="@+id/poinTextView"
+                android:id="@+id/pointTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:padding="10dp"
+                android:text="0/0"
+                android:textColor="@color/black"
+                android:textSize="30sp"
+                android:background="@color/yellow" />
+
+        </LinearLayout>
+
+        <androidx.gridlayout.widget.GridLayout
+            android:id="@+id/gridLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp">
+
+            <Button
+                android:id="@+id/button0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/yellow"
-                android:hint="0/0"
-                android:textSize="30dp" />
-        </LinearLayout>
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                android:layout_margin="5sp"
+                app:layout_row="0"
+                android:tag="0"
+                android:text="3"
+                android:textSize="80sp"
+                app:layout_column="0"
+                app:layout_rowWeight="1"
+                android:backgroundTint="@color/moka"
+                android:onClick="chooseAnswer" />
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_gravity="fill"
+                android:layout_margin="5sp"
+                android:tag="1"
+                android:text="3"
+                app:layout_columnWeight="1"
+                android:textSize="80sp"
+                app:layout_rowWeight="1"
+                app:layout_column="1"
+                app:layout_row="0"
+                android:backgroundTint="@color/pastel"
+                android:onClick="chooseAnswer" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_gravity="fill"
+                android:layout_margin="5sp"
+                android:tag="2"
+                android:text="3"
+                app:layout_row="1"
+                app:layout_column="0"
+                app:layout_rowWeight="1"
+                android:textSize="80sp"
+                app:layout_columnWeight="1"
+                android:backgroundTint="@color/ungu"
+                android:onClick="chooseAnswer"/>
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_gravity="fill"
+                android:layout_margin="5sp"
+                android:tag="3"
+                android:text="3"
+                android:textSize="80sp"
+                app:layout_column="1"
+                app:layout_columnWeight="1"
+                app:layout_row="1"
+                app:layout_rowWeight="1"
+                android:backgroundTint="@color/oren"
+                android:onClick="chooseAnswer" />
+
+        </androidx.gridlayout.widget.GridLayout>
 
         <TextView
             android:id="@+id/resultTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:hint="Hasil"
-            android:textSize="30dp"
-            android:textStyle="bold"
+            android:text=""
+            android:textSize="40sp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/gridLayout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
-
-        <androidx.gridlayout.widget.GridLayout
-            android:id="@+id/gridLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:paddingTop="50dp"
-            android:paddingBottom="50dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <Button
-                android:id="@+id/Button1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="pilihjawaban"
-                android:tag="0"
-                android:text="3"
-                android:textSize="60dp"
-                android:backgroundTint="@color/oren"
-                android:layout_margin="5dp"
-                app:layout_column="0"
-                app:layout_columnWeight="1"
-                app:layout_gravity="fill"
-                app:layout_row="0"
-                app:layout_rowWeight="1" />
-
-            <Button
-                android:id="@+id/Button2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="pilihjawaban"
-                android:tag="1"
-                android:text="3"
-                android:textSize="60dp"
-                android:backgroundTint="@color/oren"
-                android:layout_margin="5dp"
-                app:layout_column="1"
-                app:layout_columnWeight="1"
-                app:layout_gravity="fill"
-                app:layout_row="0"
-                app:layout_rowWeight="1" />
-
-            <Button
-                android:id="@+id/Button3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="pilihjawaban"
-                android:tag="2"
-                android:text="3"
-                android:textSize="60dp"
-                android:backgroundTint="@color/oren"
-                android:layout_margin="5dp"
-                app:layout_column="0"
-                app:layout_columnWeight="1"
-                app:layout_gravity="fill"
-                app:layout_row="1"
-                app:layout_rowWeight="1" />
-
-            <Button
-                android:id="@+id/Button4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="pilihjawaban"
-                android:tag="3"
-                android:text="3"
-                android:textSize="60dp"
-                android:backgroundTint="@color/oren"
-                android:layout_margin="5dp"
-                app:layout_column="1"
-                app:layout_columnWeight="1"
-                app:layout_gravity="fill"
-                app:layout_row="1"
-                app:layout_rowWeight="1" />
-
-        </androidx.gridlayout.widget.GridLayout>
+            android:layout_marginEnd="16dp"
+            android:layout_gravity="center"
+            android:textColor="@color/black" />
 
         <Button
             android:id="@+id/playAgainButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
             android:layout_gravity="center"
-            android:onClick="mulaiKembali"
             android:padding="20dp"
-            android:text="mulai kembali"
-            android:textColor="@color/white"
-            android:visibility="invisible"
-            android:backgroundTint="@color/darkblue"
-            app:cornerRadius="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayoutGame" />
+            android:textColor="@color/black"
+            android:backgroundTint="@color/hijau"
+            android:text="Play Again"
+            android:onClick="playAgain"
+            android:visibility="invisible" />
 
     </LinearLayout>
 
